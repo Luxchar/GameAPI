@@ -2,5 +2,6 @@ fastapi
 pymongo
 pytest
 python-dotenv
-logging
+#logging
 uvicorn
+pydantic

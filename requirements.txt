@@ -1,0 +1,6 @@
+fastapi
+pymongo
+pytest
+python-dotenv
+logging
+uvicorn

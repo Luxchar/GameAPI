@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from Mongo_Class import MongoAPI
 import json
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 app = Flask(__name__)

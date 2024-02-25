@@ -12,7 +12,7 @@ class Config:
         self.name = "GameAPI",
 
         # Database configurations
-        self.mongo_url = os.getenv("MONGO_URL")
+        self.mongo_url = os.getenv("MONGO_URL") + "=admin" # pymongo cuts off parameters after the first "&"
         self.database = os.getenv("DATABASE_NAME")
         
         # connect to the database

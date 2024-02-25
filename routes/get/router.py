@@ -16,6 +16,7 @@ async def list_games(request: Request):
 @getrouter.get("/games/{game_id}", response_description="Get a single game")
 def show_game(game_id: str, request: Request):
     """ Get a single game """
+    game_id = game_id.strip()
     game = request.app.database.games.find_one({"_id": ObjectId(game_id)})
     if game:
         game['_id'] = str(game['_id'])

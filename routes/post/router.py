@@ -6,7 +6,7 @@ postrouter = APIRouter()
 
 @postrouter.post("/games", response_description="ajoute jeu", status_code=status.HTTP_201_CREATED)
 async def add_game(request: Request, game_data: dict):
-    """ ajout jeu """
+    """ Add a game to the database """
     # requete tu connais
     inserted_game = request.app.database.games.insert_one(game_data)
     
@@ -14,12 +14,12 @@ async def add_game(request: Request, game_data: dict):
     if inserted_game.inserted_id:
         # rep cest ok (201)
         return {
-            "message": "C'est dans la boite",
+            "message": "Game added successfully",
             "inserted_game_id": str(inserted_game.inserted_id)
         }
     
     
-    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="echec critique")
+    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Failed to add game")
 
 @postrouter.post("/games/multiple", response_description="Add multiple games", status_code=status.HTTP_201_CREATED)
 async def add_x_games(request: Request, games_data: List[dict]):  

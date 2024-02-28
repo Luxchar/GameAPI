@@ -9,9 +9,3 @@ router = APIRouter()
 async def ping(request: Request):
     """ Check if the API is running """
     return {"ping": "pong"}
-
-# like a game
-
-# get games liked
-
-# get recommended games based on likes(games that have the same genre, publisher, etc)

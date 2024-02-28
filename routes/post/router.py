@@ -7,12 +7,9 @@ postrouter = APIRouter()
 @postrouter.post("/games", response_description="ajoute jeu", status_code=status.HTTP_201_CREATED)
 async def add_game(request: Request, game_data: dict):
     """ Add a game to the database """
-    # requete tu connais
     inserted_game = request.app.database.games.insert_one(game_data)
     
-    # on verif si cest good
     if inserted_game.inserted_id:
-        # rep cest ok (201)
         return {
             "message": "Game added successfully",
             "inserted_game_id": str(inserted_game.inserted_id)

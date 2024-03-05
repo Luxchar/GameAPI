@@ -28,7 +28,8 @@ async def create_user(request: Request):
         
         # You should hash the password before storing it in the database
         hashed_password = hash_password(user["password"])
-        db_user = {"username": user["username"], "password": hashed_password, "token": user["token"], likes: []}
+        
+        db_user = {"username": user["username"], "password": hashed_password, "token": user["token"], "likes": []}
         result = request.app.database.users.insert_one(db_user)
         
         # Convert ObjectId to string
